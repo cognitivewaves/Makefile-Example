@@ -1,11 +1,11 @@
 .PHONY : all 
-all : math/bin/libmath.so app/bin/app
+all : app/bin/app.exe
+
+app/bin/app.exe : math/bin/libmath.so
+	$(MAKE) -C app
 
 math/bin/libmath.so :
 	$(MAKE) -C math
-
-app/bin/app : 
-	$(MAKE) -C app
 
 .PHONY : clean
 clean :
